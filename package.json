@@ -9,10 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fs-extra": "^10.0.0",
-    "ganache-cli": "^6.12.2",
+    "fs-extra": "^5.0.0",
+    "ganache-cli": "^6.0.3",
     "mocha": "^9.0.3",
-    "solc": "^0.8.7-fixed",
+    "solc": "^0.4.19",
     "web3": "^1.0.0-beta.26"
   }
 }
