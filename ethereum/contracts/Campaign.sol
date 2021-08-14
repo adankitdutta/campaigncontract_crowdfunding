@@ -34,7 +34,7 @@ contract Campaign{
     Request[] public requests;
     
     modifier restricted(){
-        require(manager==msg.sender);
+        require(msg.sender == manager, "Only managers allowed!");
         _;
     }
     
@@ -44,7 +44,9 @@ contract Campaign{
     }
     
     function contribute() public payable{
-        require(msg.value>minimumContribution);
+        require(msg.value > minimumContribution,
+            "You need more money to enter into the contribution list!");
+        require(!approvers[msg.sender], "You can contribute only once!");
         approvers[msg.sender]=true;
         approversCount++;
     }
@@ -64,8 +66,9 @@ contract Campaign{
     function approveRequest(uint index) public{
         Request storage request=requests[index];
         
-        require(approvers[msg.sender]);
-        require(!request.approvals[msg.sender]);
+        require(approvers[msg.sender], "You need to contribute first!");
+        require(!request.approvals[msg.sender],"You can't approve a request twice!");
+
         
         request.approvalCount++;
         request.approvals[msg.sender]=true;
@@ -74,9 +77,14 @@ contract Campaign{
     function finalizeRequest(uint index) public restricted{
         Request storage request=requests[index];
         
-        require(request.approvalCount>(approversCount/2));
-        
-        require(!request.complete);
+        require(
+            request.approvalCount > approversCount / 2,
+            "Insufficient approvals!"
+        );
+        require(
+            !request.complete,
+            "This request has already been completed!"
+        );
         
         request.receipent.transfer(request.value);
         
