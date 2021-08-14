@@ -22,6 +22,7 @@ function CampaignIndex(props) {
           </Link>
         ),
         fluid: true,
+        style: { overflowWrap: "break-word" },
       };
     });
 
