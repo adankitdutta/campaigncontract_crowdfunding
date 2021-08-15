@@ -25,12 +25,12 @@ In this page we will see the *details of a particular campaigns* .
 
 Here we can see all the request made by manager
   If the contributers found that the request made by manager of campaign is genuine then they can approve the request , if more than 50% of the contributers have approve the requests then the manager can finalize the request and the ether will transfered to the recipient address .
-  A *Create Button* is there through which we can create a new requests .
+  A *Add Request* button is there through which the campaign manager can create a new requests for spending the balance in the campaign contract.
   ![image](https://user-images.githubusercontent.com/60663611/129474496-3db02d68-d4eb-4565-96d4-8425653c41e8.png)
   
 
 
-Here we needd to fill the details about the request
+Here we need to fill the details about the request
   ![image](https://user-images.githubusercontent.com/60663611/129474547-ff652004-6ebe-4440-9359-964ec4769b33.png)
   
 
