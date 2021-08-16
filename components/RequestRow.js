@@ -26,7 +26,7 @@ function RequestRow(props) {
         from: accounts[0],
       });
 
-      //for updating the approvals count and finalize option
+      //for updating the approvals count and finalize button visibility option
       var rq = await campaign.methods.requests(props.id).call();
       var ac = rq.approvalCount;
       setState({
